@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <title> Tennis draw example </title>
+    <link rel="stylesheet" href="Treant.css">
+    <script src="vendor/raphael.js"></script>
+    <script src="Treant.js"></script>
+    <style>
+        .node-name {
+            text-align: center;
+        }
+
+        .node-page{
+            text-align:center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- HTML -->
+    <div id="tree-simple" style="width:100vw; height: 100vh"> </div>
+
+    <script>
+        /* javascript */
+        var simple_chart_config = {
+            chart: {
+                container: "#tree-simple", connectors: { type: "step" }, rootOrientation: "NORTH"
+            },
+
+            nodeStructure: {
+                text: { name: "菩提道次第廣論科判分二" },
+                children: [
+                    {
+                        text: { name: "初皈敬頌及略述本論之重要" }
+                    },
+                    {
+                        text: { name: "次開為四門" },
+                        children: [{
+                            text: { name: "甲一", desc: "為顯其法根源淨故開示造者殊勝", page: "p000" }
+                        }, {
+                            text: { name: "甲二", desc: "令於教授起敬重故開其法殊勝", page: "p000" }
+                        }, {
+                            text: { name: "甲三", desc: "如何說聞二種殊勝相應正法", page: "p000" },
+                            children: [{
+                                text: { name: "乙一", desc: "聽聞軌理", page: "p000" },
+                                children: [
+                                    { text: { name: "丙一", desc: "思惟聞法所有勝利", page: "p000" } },
+                                    { text: { name: "丙二", desc: "於法法師發起承事", page: "p000" } },
+                                    { text: { name: "丙三", desc: "正聽軌理", page: "p000" } }
+                                ]
+                            },
+                            { text: { name: "乙二", desc: "講說軌理", page: "p000" } },
+                            { text: { name: "乙三", desc: "於完結時共作軌理", page: "p000" } }
+                            ]
+                        }, {
+                            text: { name: "甲四", desc: "如何正以教授引導學徒之次第", page: "p000" }
+                        }]
+                    }
+                ]
+            }
+        };
+
+        var chart = new Treant(simple_chart_config);
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>
