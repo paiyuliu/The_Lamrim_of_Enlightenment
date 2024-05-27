@@ -38,9 +38,21 @@
 
         var simple_chart_config = {
             chart: {
-                container: "#tree-simple", connectors: { type: "curve" }, rootOrientation: "EAST",
+                container: "#tree-simple", 
+                connectors: { 
+                    type: "curve" ,
+                    style: {
+                        "stroke-width": 1,
+                        "stroke": "black"
+                    }
+                }, 
+                rootOrientation: "EAST",
+                collapsed: false,
+                nodeAlign:"TOP",
+
                 node: {
                     collapsable: true
+                    
                 }
                 
             },
@@ -49,11 +61,11 @@
                 text: { name: "菩提道次第廣論科判分二" },
                 children: [
                     {
-                        /*innerHTML:"<div>初皈敬頌及略述</div><div style='text-align:right;'>本論之重要</div>",*/
+                        //innerHTML:"<div>初皈敬頌及略述本論之重要</div><div style='text-align:right;'></div>",
                         text: { name: "初皈敬頌及略述本論之重要" }
-                    },
-                    {
+                    },{
                         text: { name: "次開為四門" },
+                        stackChildren:true,
                         collapsed: false,
                         children: [{
                             text: { name: "甲一", desc: "為顯其法根源淨故開示造者殊勝", page: "p001" }
