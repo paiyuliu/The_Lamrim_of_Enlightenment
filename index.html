@@ -23,42 +23,98 @@
 
 <body>
     <!-- HTML -->
-    <div id="tree-simple" style="width:100vw; height: 100vh"> </div>
+    <div id="tree-simple" style="width:100vw; height: 100vh;"> </div>
 
     <script>
         /* javascript */
+        /*children example
+        children: [
+            { text: { name: "一", desc: "TODO", page: "p000" } },
+            { text: { name: "二", desc: "TODO", page: "p000" } },
+            { text: { name: "三", desc: "TODO", page: "p000" } },
+            { text: { name: "四", desc: "TODO", page: "p000" } }
+        ] 
+        */
+
         var simple_chart_config = {
             chart: {
-                container: "#tree-simple", connectors: { type: "step" }, rootOrientation: "NORTH"
+                container: "#tree-simple", connectors: { type: "curve" }, rootOrientation: "EAST",
+                node: {
+                    collapsable: true
+                }
+                
             },
 
             nodeStructure: {
                 text: { name: "菩提道次第廣論科判分二" },
                 children: [
                     {
+                        /*innerHTML:"<div>初皈敬頌及略述</div><div style='text-align:right;'>本論之重要</div>",*/
                         text: { name: "初皈敬頌及略述本論之重要" }
                     },
                     {
                         text: { name: "次開為四門" },
+                        collapsed: false,
                         children: [{
-                            text: { name: "甲一", desc: "為顯其法根源淨故開示造者殊勝", page: "p000" }
+                            text: { name: "甲一", desc: "為顯其法根源淨故開示造者殊勝", page: "p001" }
                         }, {
-                            text: { name: "甲二", desc: "令於教授起敬重故開其法殊勝", page: "p000" }
+                            text: { name: "甲二", desc: "令於教授起敬重故開其法殊勝", page: "p002" }
                         }, {
-                            text: { name: "甲三", desc: "如何說聞二種殊勝相應正法", page: "p000" },
+                            text: { name: "甲三", desc: "如何說聞二種殊勝相應正法", page: "p008" },
+                            collapsed: true,
                             children: [{
                                 text: { name: "乙一", desc: "聽聞軌理", page: "p000" },
+                                collapsed: true,
                                 children: [
-                                    { text: { name: "丙一", desc: "思惟聞法所有勝利", page: "p000" } },
-                                    { text: { name: "丙二", desc: "於法法師發起承事", page: "p000" } },
-                                    { text: { name: "丙三", desc: "正聽軌理", page: "p000" } }
+                                    { text: { name: "丙一", desc: "思惟聞法所有勝利", page: "p015" } },
+                                    { text: { name: "丙二", desc: "於法法師發起承事", page: "p016" } },
+                                    { text: { name: "丙三", desc: "正聽軌理", page: "p017" },
+                                      children: [
+                                          { text: { name: "丁一", desc: "斷器三過", page: "p017" } },
+                                          { text: { name: "丁二", desc: "依六種想", page: "p017" } }
+                                      ] }
                                 ]
                             },
-                            { text: { name: "乙二", desc: "講說軌理", page: "p000" } },
-                            { text: { name: "乙三", desc: "於完結時共作軌理", page: "p000" } }
+                            { text: { name: "乙二", desc: "講說軌理", page: "p020" },
+                              collapsed: true,
+                              children: [
+                                  { text: { name: "丙一", desc: "思惟說法所有勝利", page: "p020" } },
+                                  { text: { name: "丙二", desc: "發起承事大師及法", page: "p021" } },
+                                  { text: { name: "丙三", desc: "以何意樂加行而說", page: "p021" } },
+                                  { text: { name: "丙四", desc: "於何等境應說不說所有差別", page: "p022" } }
+                              ] },
+                            { text: { name: "乙三", desc: "於完結時共作軌理", page: "p023" } }
                             ]
                         }, {
-                            text: { name: "甲四", desc: "如何正以教授引導學徒之次第", page: "p000" }
+                            text: { name: "甲四", desc: "如何正以教授引導學徒之次第", page: "p023" },
+                            collapsed: false,
+                            children: [
+                                { text: { name: "乙一", desc: "道之根本𧡿近知識軌理", page: "p023" },
+                                collapsed: false,
+                                  children: [
+                                    { text: { name: "丙一", desc: "令發定解故稍開宣說", page: "p024" },
+                                    children: [
+                                        { text: { name: "丁一", desc: "所依善知識之相", page: "p024" } },
+                                        { text: { name: "丁二", desc: "能依學者之相", page: "p028" } },
+                                        { text: { name: "丁三", desc: "彼應如何依師之理", page: "p029" } ,
+                                          children: [
+                                            { text: { name: "戊一", desc: "意樂親近軌理", page: "p029" },
+                                            collapsed: false,
+                                              children: [
+                                                { text: { name: "己一", desc: "總示親近意樂", page: "p029" } },
+                                                { text: { name: "己二", desc: "特申修信以為根本", page: "p031" } },
+                                                { text: { name: "己三", desc: "隨念深恩應起敬重", page: "p034" } }
+                                            ]},
+                                            { text: { name: "戊二", desc: "加行親近軌理", page: "p035" } }
+                                        ]},
+                                        { text: { name: "丁四", desc: "依止勝利", page: "p037" } },
+                                        { text: { name: "丁五", desc: "未依過患", page: "p039" } },
+                                        { text: { name: "丁六", desc: "攝彼等義", page: "p040" } }
+                                    ]},
+                                    { text: { name: "丙二", desc: "總略宣說修持軌理", page: "p041" } }
+                                ]},
+                                { text: { name: "乙二", desc: "既親近已如何修心次第", page: "p059" } }
+                            ]
                         }]
                     }
                 ]
